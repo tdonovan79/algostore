@@ -1,0 +1,23 @@
+// Given a sorted linked list, delete all duplicates such that each element appear only once.
+
+// Example 1:
+
+// Input: 1->1->2
+// Output: 1->2
+// Example 2:
+
+// Input: 1->1->2->3->3
+// Output: 1->2->3
+var deleteDuplicates = function(head) {
+    if(!head){//if head is null, return head
+        return head
+    }
+    let currentPtr = head
+    while(currentPtr){
+        while(currentPtr.next && currentPtr.next.val === currentPtr.val){//if curent and next the same
+            currentPtr.next = currentPtr.next.next//next ptr points to 2 ahead
+        }
+        currentPtr = currentPtr.next//increment pointer
+    }
+    return head
+};
